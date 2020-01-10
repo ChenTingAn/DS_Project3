@@ -98,13 +98,13 @@ void algorithm_A(Board board, Player player, int index[]){
                 //neighbors(player) can explode
                 if(board.get_cell_color(i,j)=='w'){
                     if(i>0 && board.get_cell_color(i-1,j)==color && board.get_capacity(i-1,j)-board.get_orbs_num(i-1,j)==1)
-                        point+=5;
+                        point[i][j]+=5;
                     if(i<4 && board.get_cell_color(i+1,j)==color && board.get_capacity(i+1,j)-board.get_orbs_num(i+1,j)==1)
-                        point+=5;
+                        point[i][j]+=5;
                     if(j>0 && board.get_cell_color(i,j-1)==color && board.get_capacity(i,j-1)-board.get_orbs_num(i,j-1)==1)
-                        point+=5;
+                        point[i][j]+=5;
                     if(j<5 && board.get_cell_color(i,j+1)==color && board.get_capacity(i,j+1)-board.get_orbs_num(i,j+1)==1)
-                        point+=5;
+                        point[i][j]+=5;
                 }
                 //there is no enemy around
                 //usual
