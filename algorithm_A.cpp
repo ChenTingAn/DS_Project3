@@ -40,7 +40,7 @@ void algorithm_A(Board board, Player player, int index[]){
                 if(j<5 && board.get_cell_color(i,j+1)!=color && board.get_cell_color(i,j+1)!='w')  right_enemy=true;
                 //depends on position
                 if(board.get_capacity(i,j)==2)      point[i][j]+=3;
-                else if(board.get_capacity(i,j)==2)     point[i][j]+=2;
+                else if(board.get_capacity(i,j)==3)     point[i][j]+=2;
                 else    point[i][j]+=1;
                 //depends on neighbors(enemy)
                 if(i>0 && up_enemy && board.get_capacity(i-1,j)-board.get_orbs_num(i-1,j)==1){
@@ -156,10 +156,11 @@ void algorithm_A(Board board, Player player, int index[]){
             else    point[i][j]=-1000000;
         }
     }
-    int max=point[0][0];
-    int index_i=0,index_j=0;
-    for(int i=0;i<5;i++){
-        for(int j=0;j<6;j++){
+    
+    int max=point[4][5];
+    int index_i=4,index_j=5;
+    for(int i=4;i>0;i--){
+        for(int j=5;j>0;j--){
             if(max<point[i][j]){
                 max=point[i][j];
                 index_i=i;
@@ -167,6 +168,7 @@ void algorithm_A(Board board, Player player, int index[]){
             }
         }
     }
+
     index[0] = index_i;
     index[1] = index_j;
 }
